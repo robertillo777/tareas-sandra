@@ -1,0 +1,172 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Centrado del contenido principal y formulario */
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------- Encabezado y Navegación -------------------- */
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0;
+    text-align: center; /* Centrado del contenido del header */
+}
+
+/* Estilos para el título principal */
+header h1 {
+    font-size: 2.5em;
+    font-weight: bold; /* Negritas */
+    text-decoration: underline; /* Subrayado */
+    margin: 0 0 10px 0;
+}
+
+/* Estilos de navegación */
+nav a {
+    color: #f4f4f9;
+    text-decoration: none;
+    font-weight: bold; /* Negritas para enlaces */
+    margin: 0 15px;
+    padding: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+    text-decoration: underline;
+}
+
+nav button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+/* -------------------- Estilos del Formulario -------------------- */
+
+/* Títulos de las secciones */
+section h2 {
+    color: #007bff;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 25px;
+    text-align: center; /* Centrado del título de la sección */
+}
+
+/* Estilos para fieldset y legend */
+fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold; /* Negritas */
+    color: #6c757d;
+    padding: 0 10px;
+    text-decoration: underline; /* Subrayado en el legend */
+}
+
+/* Estilos para etiquetas y campos de entrada */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold; /* Negritas para todas las etiquetas */
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+    margin-bottom: 10px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Grupos de radio y checkbox para mejor alineación */
+.radio-group, .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.radio-group label, .checkbox-group label {
+    display: inline; /* Vuelve la etiqueta inline para que esté junto al input */
+    font-weight: normal; /* No negritas en las opciones de radio/checkbox */
+}
+
+/* Estilo del botón de envío */
+button[type="submit"] {
+    display: block;
+    width: 50%;
+    padding: 15px;
+    background-color: #dc3545; /* Color del botón (Rojo) */
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold; /* Negritas */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 30px auto 10px auto; /* Centrar el botón */
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #c82333;
+}
+
+/* -------------------- Pie de Página -------------------- */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Estilos para mensajes de error de validación */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    display: none; /* Inicialmente oculto */
+}
