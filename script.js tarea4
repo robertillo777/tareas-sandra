@@ -1,0 +1,89 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Obtener los elementos clave del DOM
+    const newItemInput = document.getElementById('newItemInput');
+    const addItemBtn = document.getElementById('addItemBtn');
+    const itemsList = document.getElementById('itemsList');
+
+    // 2. Función para ASIGNAR EVENTOS a los botones de un ítem (ya sea nuevo o precargado)
+    const setupItemEvents = (listItem) => {
+        const completeButton = listItem.querySelector('.complete-btn');
+        const deleteButton = listItem.querySelector('.delete-btn');
+
+        // Evento de Completado
+        if (completeButton) {
+            completeButton.addEventListener('click', () => {
+                // Alterna la clase 'completed' en el <li>
+                listItem.classList.toggle('completed');
+            });
+        }
+
+        // Evento de Eliminación
+        if (deleteButton) {
+            deleteButton.addEventListener('click', () => {
+                listItem.remove(); // Remueve el elemento <li> padre
+            });
+        }
+    };
+
+    // 3. Inicializar eventos para ítems precargados en el HTML
+    itemsList.querySelectorAll('.item').forEach(setupItemEvents);
+
+
+    // 4. Función principal: Implementa la lógica para agregar un nuevo ítem
+    const addItem = () => {
+        // a. Obtener el valor del input y limpiarlo de espacios
+        const itemText = newItemInput.value.trim();
+
+        // b. Asegurarse de que el input no esté vacío
+        if (itemText === "") {
+            alert("Por favor, inserta un ítem válido.");
+            return;
+        }
+
+        // c. Crear el nuevo elemento de lista (<li>) y su contenido
+        const listItem = document.createElement('li');
+        listItem.classList.add('item');
+
+        const itemSpan = document.createElement('span');
+        itemSpan.textContent = itemText;
+
+        const buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('actions');
+
+        // d. Crear el botón de "Completado"
+        const completeButton = document.createElement('button');
+        completeButton.innerHTML = '<i class="material-icons">check</i>';
+        completeButton.classList.add('complete-btn');
+
+        // e. Crear el botón de "Eliminar"
+        const deleteButton = document.createElement('button');
+        deleteButton.innerHTML = '<i class="material-icons">delete</i>';
+        deleteButton.classList.add('delete-btn');
+
+        // f. Ensamblar la estructura:
+        listItem.appendChild(itemSpan);
+        buttonContainer.appendChild(completeButton);
+        buttonContainer.appendChild(deleteButton);
+        listItem.appendChild(buttonContainer);
+
+        // g. Asignar eventos al nuevo ítem
+        setupItemEvents(listItem);
+
+        // h. Agregar el nuevo elemento a la lista de elementos (<ul>)
+        itemsList.appendChild(listItem);
+
+        // i. Limpiar el input después de agregar el elemento
+        newItemInput.value = '';
+        newItemInput.focus();
+    };
+
+    // 5. Asocia la función addItem al evento click del botón «Agregar».
+    addItemBtn.addEventListener('click', addItem);
+
+    // 6. Permite agregar ítems al presionar la tecla "Enter"
+    newItemInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            addItem();
+        }
+    });
+});
