@@ -1,0 +1,36 @@
+const inputName = document.getElementById('inputName');
+			const addBtn = document.getElementById('addBtn');
+			const nameList = document.getElementById('nameList');
+			const randomBtn = document.getElementById('randomBtn');
+
+			let names = [];
+			function addName() {
+	    const name = inputName.value.trim();
+	    if (name !== '') {
+	        names.push(name);
+	        renderNames();
+	        inputName.value = '';
+	    }
+			}
+			function renderNames() {
+	   	 nameList.innerHTML = '';
+	   	 names.forEach(name => {
+	        const listItem = document.createElement('li');
+	        listItem.textContent = name;
+	        nameList.appendChild(listItem);
+	   	 });
+			}
+
+			function selectRandomName() {
+	    if (names.length > 0) {
+	        const randomIndex = Math.floor(Math.random() * names.length);
+	        const selectedName = names[randomIndex];
+	        const selectlistItem = nameList.childNodes[randomIndex];
+	        selectlistItem.classList.add('selected');
+	        selectlistItem.textContent += "- Se ha elegido: ${selectedName}";
+	    } else {
+	        alert('No hay nombre en la lista');
+	    }
+	  	}
+	  	addBtn.addEventListener('click', addName);
+	    randomBtn.addEventListener('click', selectRandomName);
